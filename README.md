@@ -1,6 +1,6 @@
-# Vansinneshjärta
+# vansinnehjärta
 
-Swedish book website for **Vansinneshjärta** by **Irma Tegge**. Built with Next.js App Router, React and TypeScript. Responsive, accessible starter with SEO metadata, social preview, favicon, robots, sitemap and GitHub Actions checks.
+Swedish poetry website for **vansinnehjärta** by **Irma Tegge**. Built with Next.js App Router, React and TypeScript. Responsive, accessible starter with SEO metadata, social preview, favicon, robots, sitemap and GitHub Actions checks.
 
 ## Development
 
@@ -24,9 +24,17 @@ No environment variables are required to build. Copy `.env.example` to `.env.loc
 
 ## Content and design
 
-Edit `app/page.tsx` for copy and `app/globals.css` for styles. The CSS heart is original decorative artwork, not an official book cover. Only the supplied title and author are presented as book facts; synopsis, author biography, excerpts, publication details, cover and purchase links await approved material. Add real purchase destinations when supplied.
+The design follows the latest supplied InDesign manuscript, `vansinnehjarta boken 3 okt.indd` (3 October 2026): lowercase title **vansinnehjärta**, restrained typography, left-aligned verse, generous margins and quiet folios.
 
-`app/layout.tsx` contains metadata; `app/opengraph-image.tsx` generates the social image. No analytics, cookies, database or third-party fonts are included. Rights to the book and author material remain with their respective owners.
+The manuscript uses **Garamond Premier Pro**. The website self-hosts **EB Garamond** regular and italic, a related open-source Garamond, for consistent rendering without third-party font requests. It is a visual substitute, not the identical typeface. Exact Garamond Premier Pro web rendering can be added with an Adobe Fonts web project. The included font files come from Google Fonts and are covered by `public/fonts/OFL.txt`.
+
+- `app/page.tsx`: page copy and short quotations from manuscript pages 69 and 177.
+- `app/poems.json`: poems from pages 7, 12 and 95, transcribed from a fresh IDML export of the latest manuscript. Preserve the original wording and explicit line breaks.
+- `app/poem-reader.tsx`: accessible previous/next poem controls.
+- `app/globals.css`: responsive paper-like layout and reduced-motion support.
+- `app/layout.tsx` and `app/opengraph-image.tsx`: metadata and matching social image.
+
+The introduction is website copy based on the collection's themes, not a quotation or author biography. The manuscript and complete book remain outside the repository. Publication date, purchase links and contact details should be added once confirmed. Rights to the poetry remain with Irma Tegge.
 
 ## Dependency audit
 

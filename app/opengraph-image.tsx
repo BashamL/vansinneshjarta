@@ -1,33 +1,52 @@
 import { ImageResponse } from "next/og";
-export const alt = "Vansinneshjärta — en bok av Irma Tegge";
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
+
+export const alt = "vansinnehjärta — en diktsamling av Irma Tegge";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-export default function Image() {
+
+export default async function Image() {
+  const font = await readFile(
+    join(process.cwd(), "public/fonts/EBGaramond-Regular.ttf"),
+  );
   return new ImageResponse(
     (
       <div
         style={{
-          background: "#f3eee6",
-          color: "#31251f",
+          background: "#f8f5ed",
+          color: "#37382f",
           width: "100%",
           height: "100%",
           display: "flex",
           flexDirection: "column",
+          alignItems: "center",
           justifyContent: "center",
-          padding: 90,
+          fontFamily: "Garamond",
         }}
       >
-        <div style={{ fontSize: 24, letterSpacing: 8, marginBottom: 38 }}>
-          EN BOK AV IRMA TEGGE
+        <div
+          style={{
+            fontSize: 21,
+            letterSpacing: 5,
+            color: "#77796b",
+            marginBottom: 38,
+          }}
+        >
+          POESI AV IRMA TEGGE
         </div>
-        <div style={{ fontSize: 92, fontFamily: "serif", color: "#862f40" }}>
-          Vansinneshjärta.
+        <div style={{ fontSize: 112, letterSpacing: -5 }}>vansinnehjärta</div>
+        <div style={{ fontSize: 30, marginTop: 18, color: "#77796b" }}>
+          en diktsamling
         </div>
-        <div style={{ fontSize: 28, marginTop: 40 }}>
-          Här börjar berättelsen.
-        </div>
+        <div
+          style={{ width: 1, height: 45, background: "#d9d8c9", marginTop: 40 }}
+        />
       </div>
     ),
-    size,
+    {
+      ...size,
+      fonts: [{ name: "Garamond", data: font, weight: 400, style: "normal" }],
+    },
   );
 }

@@ -8,8 +8,12 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "next typegen && tsc --noEmit",
-    "check": "npm run lint && npm run typecheck && npm run build",
-    "postinstall": "node scripts/patch-page-flip.mjs"
+    "check": "npm run lint && npm run typecheck && npm test && npm run build",
+    "postinstall": "node scripts/patch-page-flip.mjs",
+    "test": "tsx --test tests/*.test.ts",
+    "stripe:setup": "node scripts/setup-stripe-sandbox.mjs",
+    "stripe:listen": "node scripts/stripe-listen.mjs",
+    "check:secrets": "node scripts/check-secrets.mjs"
   },
   "engines": {
     "node": ">=22.0.0"
@@ -19,7 +23,9 @@
     "next": "16.3.8",
     "page-flip": "2.0.7",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "server-only": "^0.0.1",
+    "stripe": "^23.0.0"
   },
   "devDependencies": {
     "@types/node": "^22",
@@ -27,6 +33,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.3.8",
+    "tsx": "^4.23.15",
     "typescript": "^5"
   }
 }

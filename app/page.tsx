@@ -1,5 +1,6 @@
 import ArrowIcon from "./arrow-icon";
 import PoemReader from "./poem-reader";
+import { checkoutConfigured } from "@/lib/stripe";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
         </a>
         <nav aria-label="Huvudmeny">
           <a href="#om-boken">om boken</a>
+          {checkoutConfigured() && <a href="/bestall">beställ boken</a>}
           <a href="#dikter">
             några dikter <ArrowIcon direction="up-right" />
           </a>

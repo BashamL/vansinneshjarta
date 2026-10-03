@@ -282,6 +282,8 @@ h2 {
 @media (max-width: 700px) {
   .site-header {
     padding: 22px 6%;
+    flex-wrap: wrap;
+    gap: 16px;
   }
   .author-name {
     font-size: 22px;

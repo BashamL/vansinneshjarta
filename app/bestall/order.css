@@ -1,0 +1,35 @@
+.order-page { max-width: 1120px; margin: auto; padding: 44px 6% 90px; }
+.order-back { color: var(--muted); font-size: 17px; }
+.order-layout { display: grid; grid-template-columns: 0.95fr 1fr; gap: 13%; align-items: center; margin-top: 80px; }
+.order-book { position: relative; aspect-ratio: 0.71; padding: 15% 8%; display: flex; flex-direction: column; justify-content: center; align-items: center; background: #f8f1dc; color: var(--title); border-radius: 2px 5px 5px 2px; border: 1px solid #d5c6a9; box-shadow: inset 7px 0 10px -9px #59432c, 4px 2px 0 #ece1c9, 7px 4px 0 #d5c6a9, 15px 24px 35px -22px #5d3f3260; transform: rotate(-3deg); }
+.order-book::after { content: ""; position: absolute; inset: 0 auto 0 9px; width: 1px; background: #d9ccb5; }
+.order-book > span { position: absolute; top: 14%; font-size: 17px; letter-spacing: .08em; }
+.order-book p { font-size: clamp(30px, 3.4vw, 44px); font-style: italic; letter-spacing: -.05em; }
+.order-book small { margin-top: 14px; font-size: 14px; color: #8c725a; }
+.order-details h1 { font-size: clamp(42px, 5vw, 62px); font-style: italic; color: var(--title); letter-spacing: -.04em; margin: 18px 0; }
+.order-intro { color: var(--muted); line-height: 1.6; }
+.order-totals { margin: 36px 0 16px; font-size: 20px; }
+.order-totals > div { display: flex; justify-content: space-between; gap: 20px; padding: 9px 0; }
+.order-totals dd { margin: 0; white-space: nowrap; }
+.order-totals .order-total { border-top: 1px solid var(--line); margin-top: 12px; padding-top: 18px; font-size: 24px; }
+.order-delivery, .order-message { color: var(--muted); font-size: 16px; line-height: 1.5; }
+.order-sandbox { font-size: 16px; line-height: 1.5; padding: 13px 16px; border: 1px solid #8b223830; color: var(--title); margin: 24px 0; }
+.order-button { display: flex; justify-content: center; align-items: center; gap: 22px; width: 100%; padding: 16px 24px; background: var(--title); color: #fffae8; border: 1px solid var(--title); border-radius: 2px; cursor: pointer; font-size: 21px; transition: background .2s; }
+.order-button:hover { background: #74192e; }
+.order-button:disabled { opacity: .55; cursor: default; }
+.order-button svg { width: 22px; height: 22px; }
+.order-message { margin-top: 14px; text-align: center; min-height: 24px; }
+.order-cancelled { color: var(--title); margin-bottom: 20px; font-size: 17px; }
+.order-receipt section { max-width: 600px; margin: 120px auto; text-align: center; }
+.order-receipt h1 { font-size: clamp(40px, 6vw, 64px); line-height: 1.15; color: var(--title); font-style: italic; margin: 24px 0; }
+.order-receipt section > p { line-height: 1.6; }
+.order-receipt .read-link { margin-top: 30px; }
+@media (max-width: 700px) {
+  .order-page { padding: 28px 7% 60px; }
+  .order-layout { grid-template-columns: 1fr; gap: 52px; margin-top: 48px; }
+  .order-book { width: 58%; max-width: 260px; margin: auto; }
+  .order-book p { font-size: 28px; }
+  .order-book > span { font-size: 13px; }
+  .order-details h1 { margin-top: 12px; }
+  .order-receipt section { margin: 80px auto; }
+}

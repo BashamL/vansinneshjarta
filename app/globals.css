@@ -227,12 +227,67 @@ h2 {
   margin: 48px auto 0;
 }
 .poem-page {
+  position: relative;
+  perspective: 1800px;
+  overflow: hidden;
   background: #fcfaf5;
   border: 1px solid #e5e1d5;
   box-shadow:
     0 3px 0 -1px #f5f1e6,
     0 4px 0 -1px #ddd8ca,
     0 18px 45px -30px #6b5d3f3b;
+}
+.poem-stack {
+  display: grid;
+}
+.poem-sheet {
+  grid-area: 1 / 1;
+  visibility: hidden;
+}
+.poem-sheet[data-visible="true"] {
+  visibility: visible;
+}
+.poem-sheet .poem {
+  height: 100%;
+}
+.poem-page::before,
+.page-turn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.poem-page::before {
+  z-index: 2;
+  background: linear-gradient(90deg, #67503a12, transparent 6%);
+}
+.page-turn {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: #fcfaf5;
+  transform-origin: left center;
+  backface-visibility: hidden;
+  box-shadow: 8px 0 24px #49321f18;
+  animation: turn-forward 1s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+.page-turn .poem {
+  height: 100%;
+}
+.page-turn::after {
+  background: linear-gradient(90deg, #6b503b08, #ffffff45 35%, #6b503b38);
+  animation: paper-light 1s ease both;
+}
+.poem-page[data-turn]::before {
+  background: linear-gradient(90deg, #49321f30, #49321f0d 60%, transparent);
+  animation: page-shadow 1s ease both;
+}
+.poem-page[data-turn="backward"] .page-turn {
+  animation-name: turn-backward;
+}
+.poem-page[data-turn="backward"] .page-turn::after,
+.poem-page[data-turn="backward"]::before {
+  animation-direction: reverse;
 }
 .poem {
   position: relative;
@@ -241,7 +296,6 @@ h2 {
   align-items: center;
   justify-content: center;
   padding: 70px 50px 95px;
-  animation: page-in 0.35s ease both;
 }
 .poem blockquote {
   font-size: 25px;
@@ -339,14 +393,36 @@ h2 {
   font-size: 50px;
   margin: 25px 0;
 }
-@keyframes page-in {
+@keyframes turn-forward {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(-92deg);
+  }
+}
+@keyframes turn-backward {
+  from {
+    transform: rotateY(-92deg);
+  }
+  to {
+    transform: rotateY(0deg);
+  }
+}
+@keyframes paper-light {
   from {
     opacity: 0;
-    transform: translateY(5px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+  }
+}
+@keyframes page-shadow {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
 @media (max-width: 1280px) {

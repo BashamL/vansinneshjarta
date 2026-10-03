@@ -1,7 +1,7 @@
 .order-page { max-width: 1120px; margin: auto; padding: 44px 6% 90px; }
 .order-back { color: var(--muted); font-size: 17px; }
 .order-layout { display: grid; grid-template-columns: 0.95fr 1fr; gap: 13%; align-items: center; margin-top: 80px; }
-.order-book { position: relative; aspect-ratio: 0.71; padding: 15% 8%; display: flex; flex-direction: column; justify-content: center; align-items: center; background: #f8f1dc; color: var(--title); border-radius: 2px 5px 5px 2px; border: 1px solid #d5c6a9; box-shadow: inset 7px 0 10px -9px #59432c, 4px 2px 0 #ece1c9, 7px 4px 0 #d5c6a9, 15px 24px 35px -22px #5d3f3260; transform: rotate(-3deg); }
+.order-book { position: relative; aspect-ratio: 0.71; padding: 15% 8%; display: flex; flex-direction: column; justify-content: center; align-items: center; background: #f8f1dc; color: var(--title); border-radius: 2px 5px 5px 2px; border: 1px solid #d5c6a9; box-shadow: inset 7px 0 10px -9px #59432c, 4px 2px 0 #ece1c9, 7px 4px 0 #d5c6a9, 15px 24px 35px -22px #5d3f3260; }
 .order-book::after { content: ""; position: absolute; inset: 0 auto 0 9px; width: 1px; background: #d9ccb5; }
 .order-book > span { position: absolute; top: 14%; font-size: 17px; letter-spacing: .08em; }
 .order-book p { font-size: clamp(30px, 3.4vw, 44px); font-style: italic; letter-spacing: -.05em; }

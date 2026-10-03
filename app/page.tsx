@@ -91,9 +91,19 @@ export default function Home() {
             <br />
             <em>vansinnehjärta</em>
           </blockquote>
-          <span className="closing-heart" aria-hidden="true">
-            ♡
-          </span>
+          <svg
+            className="closing-heart"
+            viewBox="0 0 32 32"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path d="M16 27S4 19.5 4 11.5a6.5 6.5 0 0 1 12-3.4 6.5 6.5 0 0 1 12 3.4C28 19.5 16 27 16 27Z" />
+          </svg>
           <p className="closing-caption">ur bokens sista dikt</p>
         </section>
       </main>

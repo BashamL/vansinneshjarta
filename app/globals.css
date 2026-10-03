@@ -1,5 +1,6 @@
 :root {
-  --paper: #f8f5ed;
+  --paper: #fffae8;
+  --title: #6e141d;
   --ink: #37382f;
   --muted: #77796b;
   --line: #d9d8c9;
@@ -134,6 +135,7 @@ h2 {
   margin-bottom: 24px;
 }
 .title-page h1 {
+  color: var(--title);
   font-size: clamp(60px, 8.1vw, 116px);
   line-height: 1.05;
   letter-spacing: -0.05em;
@@ -306,9 +308,10 @@ h2 {
 }
 .closing-heart {
   display: block;
-  color: var(--accent);
-  font-size: 29px;
-  margin: 27px 0 14px;
+  width: 30px;
+  height: 30px;
+  color: var(--title);
+  margin: 27px auto 14px;
 }
 .closing-caption {
   font-size: 13px;

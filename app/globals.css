@@ -312,8 +312,9 @@ h2 {
   color: var(--muted);
 }
 .site-footer {
-  display: flex;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: baseline;
   gap: 20px;
   justify-content: space-between;
   max-width: 1150px;
@@ -323,10 +324,11 @@ h2 {
   font-size: 14px;
   color: var(--muted);
 }
-.footer-credits {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
+.site-footer > a {
+  justify-self: end;
+}
+.site-footer > * {
+  white-space: nowrap;
 }
 .website-credit {
   font-size: 12px;
@@ -448,7 +450,15 @@ h2 {
     font-size: 38px;
   }
   .site-footer {
-    font-size: 13px;
+    grid-template-columns: auto auto auto;
+    gap: 8px;
+    font-size: 11px;
+  }
+  .website-credit {
+    font-size: 10px;
+  }
+  .site-footer a .arrow-icon {
+    margin-left: 4px;
   }
 }
 @media (prefers-reduced-motion: reduce) {

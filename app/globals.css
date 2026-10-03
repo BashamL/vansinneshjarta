@@ -306,14 +306,8 @@ h2 {
   line-height: 1.2;
   letter-spacing: -0.025em;
 }
-.closing-heart {
-  display: block;
-  width: 30px;
-  height: 30px;
-  color: var(--title);
-  margin: 27px auto 14px;
-}
 .closing-caption {
+  margin-top: 27px;
   font-size: 13px;
   color: var(--muted);
 }

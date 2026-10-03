@@ -222,8 +222,76 @@ h2 {
 .poems-section {
   padding-bottom: 65px;
 }
+.reader {
+  max-width: 720px;
+  margin: 48px auto 0;
+}
+.poem-page {
+  background: #fcfaf5;
+  border: 1px solid #e5e1d5;
+  box-shadow:
+    0 3px 0 -1px #f5f1e6,
+    0 4px 0 -1px #ddd8ca,
+    0 18px 45px -30px #6b5d3f3b;
+}
+.poem {
+  position: relative;
+  min-height: 470px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 70px 50px 95px;
+  animation: page-in 0.35s ease both;
+}
+.poem blockquote {
+  font-size: 25px;
+  line-height: 1.5;
+}
 .verse-line {
   display: block;
+}
+.poem figcaption {
+  position: absolute;
+  bottom: 27px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 15px;
+  font-variant-numeric: oldstyle-nums;
+}
+.reader-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  font-size: 17px;
+}
+.reader-controls button {
+  border: 0;
+  background: none;
+  padding: 10px 0;
+  min-height: 44px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  cursor: pointer;
+}
+.reader-controls button:hover:enabled {
+  color: var(--accent);
+}
+.reader-controls button:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+.reader-count {
+  color: var(--muted);
+  font-size: 14px;
+  letter-spacing: 0.13em;
+}
+.reader-count span {
+  margin: 0 8px;
+  color: #bebdaf;
 }
 .closing {
   text-align: center;
@@ -270,6 +338,16 @@ h2 {
 .error-page h1 {
   font-size: 50px;
   margin: 25px 0;
+}
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 @media (max-width: 1280px) {
   .about-section,
@@ -336,6 +414,24 @@ h2 {
   }
   .about-prose {
     font-size: 21px;
+  }
+  .reader {
+    margin-top: 30px;
+  }
+  .poem {
+    min-height: 390px;
+    padding: 55px 22px 80px;
+  }
+  .poem blockquote {
+    font-size: clamp(16px, 4.25vw, 23px);
+    line-height: 1.65;
+  }
+  .reader-controls {
+    font-size: 16px;
+    margin-top: 23px;
+  }
+  .reader-controls button {
+    gap: 9px;
   }
   .closing {
     padding: 45px 24px 80px;

@@ -97,7 +97,12 @@ export default function Home() {
         </section>
       </main>
       <footer className="site-footer">
-        <span>© {new Date().getFullYear()} Irma Tegge</span>
+        <div className="footer-credits">
+          <span>© {new Date().getFullYear()} Irma Tegge</span>
+          <small className="website-credit">
+            webbplats av <a href="https://github.com/BashamL">BashamL</a>
+          </small>
+        </div>
         <a href="#hem">
           till första sidan <ArrowIcon direction="up" />
         </a>

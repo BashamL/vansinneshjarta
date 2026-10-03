@@ -313,6 +313,8 @@ h2 {
 }
 .site-footer {
   display: flex;
+  align-items: flex-start;
+  gap: 20px;
   justify-content: space-between;
   max-width: 1150px;
   margin: auto;
@@ -320,6 +322,18 @@ h2 {
   border-top: 1px solid var(--line);
   font-size: 14px;
   color: var(--muted);
+}
+.footer-credits {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.website-credit {
+  font-size: 12px;
+}
+.website-credit a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 .site-footer a .arrow-icon {
   margin-left: 10px;

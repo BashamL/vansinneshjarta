@@ -32,7 +32,7 @@ The manuscript uses **Garamond Premier Pro**. The website self-hosts **EB Garamo
 - `app/poems.json`: poems from pages 7, 12 and 95, transcribed from a fresh IDML export of the latest manuscript. Preserve the original wording and explicit line breaks.
 - `app/poem-reader.tsx`: accessible poem navigation, keyboard arrows, page selection and Motion transitions.
 - `app/book/`: responsive book spreads, single-page mobile reading and StPageFlip corner folds. The renderer uses cloned page templates so its DOM changes remain separate from React. Reduced motion uses immediate page changes.
-- `scripts/patch-page-flip.mjs`: idempotent installation patch for StPageFlip 2.0.7 to cancel its animation loop and remove resize listeners on destruction. Review this patch before upgrading the pinned dependency.
+- `scripts/patch-page-flip.mjs`: idempotent installation patch for StPageFlip 2.0.7. It cleans up animation loops and resize listeners, eases automatic turns, starts at a small corner fold, marks the mobile reverse face as blank paper, and replaces the double gray shadow with a single warm crease. Review this patch before upgrading the pinned dependency.
 - `app/globals.css`: responsive paper-like layout and reduced-motion support.
 - `app/layout.tsx` and `app/opengraph-image.tsx`: metadata and matching social image.
 

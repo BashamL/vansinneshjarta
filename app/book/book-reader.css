@@ -1,5 +1,5 @@
 .book-reader {
-  --book-paper: #fffdf4;
+  --book-paper: #fffdf5;
   --book-edge: #d8cfb8;
   --book-shadow: #66503d;
   max-width: 1080px;
@@ -102,6 +102,11 @@
   pointer-events: none;
 }
 
+/* The binding sits on the resting spread, never across a lifted sheet. */
+.book-frame[data-turning="true"] .book-binding {
+  visibility: hidden;
+}
+
 .book-frame[data-layout="spread"] .book-binding {
   left: calc(50% - 22px);
   width: 44px;
@@ -117,31 +122,49 @@
 
 .book-leaf {
   color: var(--ink);
-  background: var(--book-paper);
+  background-color: var(--book-paper);
   border: 1px solid #e6decb;
   overflow: hidden;
   -webkit-font-smoothing: antialiased;
+}
+
+/* Flatten text and paper into the same clipped surface. The renderer's
+   preserve-3d default can composite descendants above adjacent leaves. */
+.book-engine .book-leaf {
+  transform-style: flat;
+  isolation: isolate;
+  backface-visibility: hidden;
 }
 
 .book-leaf::after {
   content: "";
   position: absolute;
   inset: 0;
-  opacity: 0.24;
+  opacity: 0.1;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23867960' filter='url(%23p)' opacity='.13' d='M0 0h160v160H0z'/%3E%3C/svg%3E");
   pointer-events: none;
 }
 
 .book-frontispiece {
-  background:
-    linear-gradient(90deg, #fefbef, #fffdf4 65%, #f4eddb 99%, #e9e0cb);
+  background-image:
+    linear-gradient(90deg, #fffdf5 85%, #f7f2e4 97%, #e7ddc7);
   border-radius: 3px 0 0 3px;
 }
 
 .book-poem-leaf {
-  background:
-    linear-gradient(90deg, #ede5d2, #f9f5e8 3%, #fffdf4 13%, #fffdf4 94%, #faf5e7);
+  background-image:
+    linear-gradient(90deg, #e9dfc9, #f8f3e5 3%, #fffdf5 11%);
   border-radius: 0 3px 3px 0;
+}
+
+/* Only resting pages carry the gutter shading. A moving sheet is solid
+   paper, lit by the renderer's single fold shadow. */
+.book-engine .book-leaf:not(.--simple) {
+  background-image: none;
+}
+
+.book-reverse .book-leaf-content {
+  visibility: hidden;
 }
 
 .book-leaf-content {

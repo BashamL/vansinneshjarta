@@ -23,7 +23,7 @@ export default function Home() {
       <main id="innehall">
         <section className="title-page" id="hem" aria-labelledby="boktitel">
           <p className="small-caps">poesi av irma tegge</p>
-          <h1 id="boktitel">vansinnehjärta</h1>
+          <h1 id="boktitel">your mums a big fucking hoe</h1>
           <p className="subtitle">en diktsamling</p>
           <span className="fine-line" aria-hidden="true" />
           <figure className="opening-quote">
